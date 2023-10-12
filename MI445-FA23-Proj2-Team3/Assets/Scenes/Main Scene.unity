@@ -599,6 +599,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4093223103296922973, guid: fadb4af7f387c0b46a9d7a16ba8bb01f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1012253127}
+    - target: {fileID: 4093223103296922973, guid: fadb4af7f387c0b46a9d7a16ba8bb01f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 6043918083547939371, guid: fadb4af7f387c0b46a9d7a16ba8bb01f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2310,6 +2318,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 644755088407869270, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 644755088407869270, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2078745111521701517, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
@@ -7475,6 +7487,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004949401}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1012253127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3666330939451953610, guid: a8747ed9bbe40c7459cb41d29f80af0f, type: 3}
+  m_PrefabInstance: {fileID: 9029667}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217188362e5ab4242b583db1dd68a886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1029190970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10262,7 +10285,7 @@ PrefabInstance:
       objectReference: {fileID: 1552230470}
     - target: {fileID: 1506229042966188952, guid: 4b16cb1b6320fd346b1c086dda05e90a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6975605070541812128, guid: 4b16cb1b6320fd346b1c086dda05e90a, type: 3}
       propertyPath: m_LocalPosition.x
