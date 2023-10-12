@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 2323497618111579054}
   - component: {fileID: 739780616428289458}
   - component: {fileID: 4665754890245939295}
+  - component: {fileID: 157049106411447234}
+  - component: {fileID: 7452856927474704569}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
@@ -103,7 +105,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -134,7 +136,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -172,11 +174,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe96982f3ec2e04f8f7419974d88ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seesPlayer: 1
+  seesPlayer: 0
   aggro: 0
   player: {fileID: 0}
   debugPoint: {fileID: 0}
-  stopDistance: 3
+  visionAngle: 45
+  visionDistance: 10
+  visionLayer:
+    serializedVersion: 2
+    m_Bits: 257
 --- !u!114 &4665754890245939295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,3 +199,37 @@ MonoBehaviour:
   maxDist: 0
   creatureDistance: 0
   tempDist: 0
+--- !u!114 &157049106411447234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879478241644221629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f3e669cf9dfa74cb51c304f0f1ab4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wanderPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  encounterDelayTime: 30
+  maxRange: 50
+  encounterDistance: 5
+  encounterTime: 10
+--- !u!114 &7452856927474704569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879478241644221629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42d8f2a3926d9a4d81bb8b922295c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 0}

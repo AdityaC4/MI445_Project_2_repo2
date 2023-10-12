@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private InputManager inputManager;
 
     [SerializeField]
-    bool canMove;
+    public bool canMove;
    
     [SerializeField] public bool isMoving;
 

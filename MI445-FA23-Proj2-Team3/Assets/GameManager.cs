@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    [SerializeField]
     PlayerController player;
     [SerializeField]
     Dictionary<string, bool> flags = new Dictionary<string, bool>();
+    [SerializeField]
+    Vector3 spawnPoint;
+
+    [SerializeField]
+    GameObject gameOverScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +38,20 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+
+    }
+
+    public void ResetPlayer()
+    {
+        StartCoroutine(RunResetPlayer());
+    }
+
+    IEnumerator RunResetPlayer()
+    {
+        player.transform.position = spawnPoint;
+        yield return new WaitForFixedUpdate();
+        player.canMove = true;
+        gameOverScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

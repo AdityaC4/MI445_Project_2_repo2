@@ -65,7 +65,10 @@ public class CreatureAI : MonoBehaviour
         {
             if (seesPlayer && !player.GetComponent<PlayerController>().hidden)
             {
-                aggro++;
+                if(aggro < 5)
+                {
+                    aggro++;
+                }
                 agent.destination = player.transform.position;
                 yield return new WaitForSecondsRealtime(.2f);
             }
@@ -80,6 +83,7 @@ public class CreatureAI : MonoBehaviour
                 else
                 {
                     agent.destination = patrol.GetNextPoint();
+                    yield return new WaitForSeconds(1f);
                 }
                 
             }

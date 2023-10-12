@@ -55,5 +55,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e00bc36ace13224448fef0a556c89dbf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6950061688455350760}
   m_SourcePrefab: {fileID: 100100000, guid: e00bc36ace13224448fef0a556c89dbf, type: 3}
+--- !u!1 &4109921930768697039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e00bc36ace13224448fef0a556c89dbf, type: 3}
+  m_PrefabInstance: {fileID: 3875358377395846046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6950061688455350760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109921930768697039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3de49bca00d6354185a40cd191a8813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 0}
+  openPos: {x: 0, y: 0, z: 0}
+  openRotation: {x: 0, y: 0, z: 0, w: 0}
