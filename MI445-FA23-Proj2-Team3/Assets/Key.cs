@@ -10,12 +10,18 @@ public class Key : MonoBehaviour, IInteractable
     Vector3 openPos;
     [SerializeField]
     Quaternion openRotation;
+    [SerializeField]
+    private GameObject key;
+
+    private GameManager gameManager;
+    void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public void Interact()
     {
-        Debug.Log("Open Door");
-        door.SetActive(false);
-        //door.transform.position = openPos;
-        //door.transform.rotation = openRotation;
+        gameManager.flags.Add("greenKey", true);
+        key.SetActive(false);
     }
 }

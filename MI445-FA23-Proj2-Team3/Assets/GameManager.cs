@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     PlayerController player;
     [SerializeField]
-    Dictionary<string, bool> flags = new Dictionary<string, bool>();
+    public Dictionary<string, bool> flags = new Dictionary<string, bool>();
     [SerializeField]
     Vector3 spawnPoint;
 
