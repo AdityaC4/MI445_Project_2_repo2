@@ -24,6 +24,7 @@ public class NewBehaviourScript : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Paper Pickup");
         Note.SetActive(true);
         FlashLight.SetActive(false);
         Time.timeScale = 0f;
@@ -33,6 +34,7 @@ public class NewBehaviourScript : MonoBehaviour, IInteractable
 
     public void ExitButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Paper Drop");
         Note.SetActive(false);
         FlashLight.SetActive(true);
         Time.timeScale = 1f;

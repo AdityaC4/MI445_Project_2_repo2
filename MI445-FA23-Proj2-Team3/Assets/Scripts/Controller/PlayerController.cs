@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool canMove;
    
-    [SerializeField] public bool isMoving;
+    [SerializeField]
+    public bool isMoving;
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Play footstep if moving and grounded
-        if (isMoving && controller.isGrounded)
+        if (!hidden && isMoving && controller.isGrounded)
         {
             PlayerAudio.PlayFootstep();
         }
@@ -102,6 +103,8 @@ public class PlayerController : MonoBehaviour
         hiddenEntryPos = startPos;
         //transform.rotation = rotation;
         GetComponent<Rigidbody>().detectCollisions = false;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Locker Enter + Exit");
+        AudioManager.toggleInsideLockerSnapshot(true);
     }
 
     public void ExitLocker(Vector3 endPos)
@@ -116,6 +119,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForFixedUpdate();
         GetComponent<Rigidbody>().detectCollisions = true;
         canMove = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Locker Enter + Exit");
+        AudioManager.toggleInsideLockerSnapshot(false);
     }
 
 }
