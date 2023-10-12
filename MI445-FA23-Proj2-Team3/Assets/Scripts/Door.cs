@@ -6,6 +6,9 @@ public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private GameObject door;
+
+    [SerializeField]
+    private string keyTag;
     
     private GameManager gameManager;
     void Awake()
@@ -16,9 +19,9 @@ public class Door : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (gameManager.flags.ContainsKey("greenKey"))
+        if (gameManager.flags.ContainsKey(keyTag))
         {
-            bool flagValue = gameManager.flags["greenKey"];
+            bool flagValue = gameManager.flags[keyTag];
             if (flagValue == true)
             {
                 Debug.Log("key found");

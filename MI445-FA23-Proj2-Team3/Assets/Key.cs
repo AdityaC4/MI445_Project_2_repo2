@@ -12,6 +12,8 @@ public class Key : MonoBehaviour, IInteractable
     Quaternion openRotation;
     [SerializeField]
     private GameObject key;
+    [SerializeField]
+    private string keyTag;
 
     private GameManager gameManager;
     void Awake()
@@ -21,7 +23,7 @@ public class Key : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        gameManager.flags.Add("greenKey", true);
+        gameManager.flags.Add(keyTag, true);
         key.SetActive(false);
     }
 }

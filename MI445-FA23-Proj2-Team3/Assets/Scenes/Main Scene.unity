@@ -779,6 +779,7 @@ MonoBehaviour:
   openPos: {x: 0, y: 0, z: 0}
   openRotation: {x: 0, y: 0, z: 0, w: 0}
   key: {fileID: 171024214}
+  keyTag: greenKey
 --- !u!65 &171024222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1891,6 +1892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 470153874}
+  keyTag: greenKey
 --- !u!1 &475288363
 GameObject:
   m_ObjectHideFlags: 0
