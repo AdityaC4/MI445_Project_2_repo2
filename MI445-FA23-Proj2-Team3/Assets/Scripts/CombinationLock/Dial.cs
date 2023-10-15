@@ -15,6 +15,9 @@ public class Dial : MonoBehaviour, IInteractable
     [SerializeField]
     private UnityEvent<Dial> onDialRotated;
 
+    [SerializeField]
+    private PlayerController playerController;
+
     void Start()
     {
         currentIndex = Random.Range(0, 10);
@@ -65,7 +68,9 @@ public class Dial : MonoBehaviour, IInteractable
     }
 
     public void Interact()
-    {
-        this.Rotate();
+    { 
+        
+        this.Rotate();  // change this to mouse click
+
     }
 }

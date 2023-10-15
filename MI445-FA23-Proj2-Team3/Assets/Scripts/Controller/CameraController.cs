@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
     public bool invert = true;
 
     private InputManager inputManager;
+
+    public bool lockCamera = false;
     
     // Start is called before the first frame update
     void Start()
@@ -24,12 +26,16 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (framesWaited <= waitForFrames)
+        if (!lockCamera)
         {
-            framesWaited += 1;
-            return;
+            if (framesWaited <= waitForFrames)
+            {
+                framesWaited += 1;
+                return;
+            }
+            ProcessRotation();
         }
-        ProcessRotation();
+        
     }
 
     void SetUpCamera()
