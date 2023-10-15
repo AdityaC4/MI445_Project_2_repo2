@@ -314,53 +314,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 557441805103478344, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 557441805103478344, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 557441805103478344, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 237991352}
-    - target: {fileID: 557441805103478344, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 557441805103478344, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReadLeftClickInput
-      objectReference: {fileID: 0}
-    - target: {fileID: 557441805103478344, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReadFlashToggleInput
-      objectReference: {fileID: 0}
-    - target: {fileID: 557441805103478344, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: InputManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 557441805103478344, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 644755088407869270, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220371927139581875, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: pickUpRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2154043474241795356, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: interactRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7602410426610278140, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 8592652197846320918, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -407,17 +363,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
---- !u!114 &237991352 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3388627420688653737, guid: a1a94e6e31bf9ec42a10601e7caa5f52, type: 3}
-  m_PrefabInstance: {fileID: 237991351}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4210ac2b9649b68428bd57ac46ca57f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &630988333
 GameObject:
   m_ObjectHideFlags: 0

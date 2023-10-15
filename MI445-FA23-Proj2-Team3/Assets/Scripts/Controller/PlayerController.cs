@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool isMoving;
 
+    [SerializeField]
+    private GameObject normalLight;
+
+    [SerializeField]
+    private GameObject revealLight;
+
     void Start()
     {
         SetUpCharacterController();
@@ -68,6 +74,7 @@ public class PlayerController : MonoBehaviour
         {
             ProcessMovement();
             ProcessRotation();
+            FlashSwitch();
         }
         
     }
@@ -123,4 +130,20 @@ public class PlayerController : MonoBehaviour
         AudioManager.toggleInsideLockerSnapshot(false);
     }
 
+    void FlashSwitch()
+    {
+        if (inputManager.flashTogglePressed)
+        {
+            if (normalLight.activeSelf)
+            {
+                normalLight.SetActive(false);
+                revealLight.SetActive(true);
+            }
+            else
+            {
+                normalLight.SetActive(true);
+                revealLight.SetActive(false);
+            }
+        }
+    }
 }
