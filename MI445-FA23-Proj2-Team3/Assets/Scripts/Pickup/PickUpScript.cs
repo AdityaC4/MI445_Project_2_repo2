@@ -16,6 +16,9 @@ public class PickUpScript : MonoBehaviour
     private bool canDrop = true;
     private int LayerNumber;
 
+    Vector3 initialObjectPos;
+    Quaternion initialObjectRot;
+
     void Start()
     {
         SetUpInput();
@@ -49,7 +52,7 @@ public class PickUpScript : MonoBehaviour
         {
             MoveObject();
 
-            if (inputManager.throwPressed && canDrop == true)
+            if (inputManager.leftClickPressed && canDrop == true)
             {
                 StopClipping();
                 ThrowObject();
@@ -59,12 +62,16 @@ public class PickUpScript : MonoBehaviour
     }
     void PickUpObject(GameObject pickUpObj)
     {
+        initialObjectPos = pickUpObj.transform.position;
+        initialObjectRot = pickUpObj.transform.rotation;
+        
         if (pickUpObj.GetComponent<Rigidbody>())
         {
             heldObj = pickUpObj;
             heldObjRb = pickUpObj.GetComponent<Rigidbody>();
             heldObjRb.isKinematic = true;
-            heldObjRb.transform.parent = grabPoint.transform;
+            //heldObjRb.transform.parent = grabPoint.transform;
+            heldObj.transform.position = grabPoint.transform.position;
             heldObj.layer = LayerNumber;  
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
         }
@@ -80,6 +87,7 @@ public class PickUpScript : MonoBehaviour
     void MoveObject()
     {
         heldObj.transform.position = grabPoint.transform.position;
+        heldObj.transform.rotation = grabPoint.transform.rotation;
     }
     
     void ThrowObject()

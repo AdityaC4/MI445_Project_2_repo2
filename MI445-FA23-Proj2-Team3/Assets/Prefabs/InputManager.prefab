@@ -145,6 +145,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6756d7cb-c3eb-4222-b7e7-149b7b4a6489
     m_ActionName: Player/leftClick[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e8a7ff2-aed9-46c0-b03a-80669df2c566
+    m_ActionName: Player/Flashlight[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

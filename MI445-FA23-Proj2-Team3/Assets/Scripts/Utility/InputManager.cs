@@ -58,20 +58,36 @@ public class InputManager : MonoBehaviour
         interactPressed = false;
     }
 
-    [Header("Throw input")]
-    public bool throwPressed;
+    [Header("left click input")]
+    public bool leftClickPressed;
 
-    public void ReadThrowInput(InputAction.CallbackContext context)
+    public void ReadLeftClickInput(InputAction.CallbackContext context)
     {
-        throwPressed = !context.canceled;
-        StartCoroutine("ResetThrowPressed");
+        leftClickPressed = !context.canceled;
+        StartCoroutine("ResetLeftClickPressed");
     }
 
-    private IEnumerator ResetThrowPressed()
+    private IEnumerator ResetLeftClickPressed()
     {
         yield return new WaitForEndOfFrame();
-        throwPressed = false;
+        leftClickPressed = false;
     }
+
+    [Header("flash toggle input")]
+    public bool flashTogglePressed;
+
+    public void ReadFlashToggleInput(InputAction.CallbackContext context)
+    {
+        flashTogglePressed = !context.canceled;
+        StartCoroutine("ResetFlashTogglePressed");
+    }
+
+    private IEnumerator ResetFlashTogglePressed()
+    {
+        yield return new WaitForEndOfFrame();
+        flashTogglePressed = false;
+    }
+
 
     //public void ReadInteractInput(InputAction.CallbackContext context)
     //{
