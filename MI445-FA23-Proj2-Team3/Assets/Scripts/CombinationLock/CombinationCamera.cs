@@ -15,6 +15,8 @@ public class CombinationCamera : MonoBehaviour, IInteractable
     [SerializeField]
     private Transform camPos;
 
+    private bool interacted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +26,9 @@ public class CombinationCamera : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && interacted)
         {
+            interacted = false;
             Unlock();
         }
     }
@@ -34,6 +37,8 @@ public class CombinationCamera : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        interacted = true;
+
         playerController.canMove = false;
         cameraController.lockCamera = true;
 

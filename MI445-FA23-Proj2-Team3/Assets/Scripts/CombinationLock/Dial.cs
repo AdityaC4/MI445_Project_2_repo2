@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Dial : MonoBehaviour, IInteractable
+public class Dial : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField]
@@ -18,10 +18,35 @@ public class Dial : MonoBehaviour, IInteractable
     [SerializeField]
     private PlayerController playerController;
 
+    private InputManager inputManager;
+
     void Start()
     {
+        SetUpInput();
         currentIndex = Random.Range(0, 10);
         transform.localRotation = Quaternion.Euler(0, currentIndex * -36, 0);
+    }
+
+    private void Update()
+    {
+        if (inputManager.leftClickPressed)
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if(Physics.Raycast(ray, out hit, 100.0f))
+            {
+                Debug.Log("raycast hit " + hit.transform.name);
+                if (hit.transform != null)
+                {
+                    if (hit.collider.gameObject == this.gameObject)
+                    {
+                        Debug.Log("if 4");
+                        this.Rotate();
+                    }
+                }
+            }
+        }
     }
 
     public void Rotate()
@@ -67,10 +92,22 @@ public class Dial : MonoBehaviour, IInteractable
         isRotating = false;
     }
 
-    public void Interact()
-    { 
-        
-        this.Rotate();  // change this to mouse click
+    //public void Interact()
+    //{ 
 
+    //    this.Rotate();  // change this to mouse click
+
+    //}
+
+    void SetUpInput()
+    {
+        if (inputManager == null)
+        {
+            inputManager = FindObjectOfType<InputManager>();
+        }
+        if (inputManager == null)
+        {
+            Debug.LogError("There is no input manager in the scene.");
+        }
     }
 }

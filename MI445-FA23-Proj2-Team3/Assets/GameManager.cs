@@ -43,6 +43,12 @@ public class GameManager : MonoBehaviour
 
     public void ResetPlayer()
     {
+        CombinationCamera[] cameras = FindObjectsOfType<CombinationCamera>();
+        foreach (CombinationCamera cam in cameras)
+        {
+            cam.Unlock();
+        }
+
         StartCoroutine(RunResetPlayer());
     }
 

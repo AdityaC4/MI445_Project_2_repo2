@@ -15,6 +15,9 @@ public class CombinationLock : MonoBehaviour
     [SerializeField]
     private UnityEvent onCorrectCombinationFound;
 
+    [SerializeField]
+    private GameObject hitbox;
+
     public void CheckCombination(Dial dial)
     {
         for(int i = 0; i<dials.Length; i++)
@@ -26,6 +29,7 @@ public class CombinationLock : MonoBehaviour
                 return;
             }
         }
+        hitbox.SetActive(false);
         CorrectCombination();
     }
     
