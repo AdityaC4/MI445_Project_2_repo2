@@ -15,10 +15,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject gameOverScreen;
 
+    CombinationCamera[] cameras;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        cameras = FindObjectsOfType<CombinationCamera>();
     }
 
     // Update is called once per frame
@@ -43,7 +45,6 @@ public class GameManager : MonoBehaviour
 
     public void ResetPlayer()
     {
-        CombinationCamera[] cameras = FindObjectsOfType<CombinationCamera>();
         foreach (CombinationCamera cam in cameras)
         {
             cam.Unlock();

@@ -17,6 +17,12 @@ public class CombinationCamera : MonoBehaviour, IInteractable
 
     private bool interacted = false;
 
+    private void Awake()
+    {
+        originalCameraPos = Camera.main.transform.position;
+        originalCameraRot = Camera.main.transform.rotation;     
+    }
+
     // Start is called before the first frame update
     void Start()
     {
