@@ -72,20 +72,13 @@ public class CreatureAI : MonoBehaviour
                 agent.destination = player.transform.position;
                 yield return new WaitForSecondsRealtime(.2f);
             }
-            else if (player.GetComponent<PlayerController>().hidden && aggro >= 3)
+            else if (player.GetComponent<PlayerController>().hidden && aggro > 3)
             {
-                if(aggro > 3)
-                {
-                    agent.destination = player.GetComponent<PlayerController>().hiddenEntryPos;
-                    yield return new WaitForSeconds(1f);
-                    aggro--;
-                }
-                else
-                {
-                    agent.destination = patrol.GetNextPoint();
-                    yield return new WaitForSeconds(1f);
-                }
-                
+
+                agent.destination = player.GetComponent<PlayerController>().hiddenEntryPos;
+                yield return new WaitForSeconds(1f);
+                aggro--;
+       
             }
             else if(agent.remainingDistance < accuracy)
             {

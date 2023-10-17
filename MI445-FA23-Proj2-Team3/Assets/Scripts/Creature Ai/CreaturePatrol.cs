@@ -15,6 +15,7 @@ public class CreaturePatrol : MonoBehaviour
 
     [SerializeField] float encounterDistance;
     [SerializeField] float encounterTime;
+    [SerializeField] float restTime;
 
     GameObject player;
 
@@ -61,7 +62,6 @@ public class CreaturePatrol : MonoBehaviour
                 }
             }
 
-            Debug.Log(possibleTargets.Count - 1);
             if (possibleTargets.Count == 0 )
             {
                 Debug.LogWarning("No Possible Targets");
@@ -70,6 +70,25 @@ public class CreaturePatrol : MonoBehaviour
                     return player.GetComponent<PlayerController>().hiddenEntryPos;
                 }
                 return playerPos;
+            }
+
+            else if (Time.time - lastEncounterTime < restTime){
+                Vector3 farthestPoint = playerPos;
+                float distance = 0;
+                foreach(GameObject point in possibleTargets)
+                {
+                    float tempDist = Vector3.Distance(point.transform.position, playerPos);
+                    Debug.Log(tempDist);
+                    Debug.Log(distance);
+                    if (tempDist > distance)
+                    {
+                        farthestPoint = point.transform.position;
+                        distance = tempDist;
+                    }
+                }
+
+                Debug.Log("Farthest Point is: " + farthestPoint.ToString());
+                return farthestPoint;
             }
             return possibleTargets[Random.Range(0, possibleTargets.Count - 1)].transform.position;
         }
