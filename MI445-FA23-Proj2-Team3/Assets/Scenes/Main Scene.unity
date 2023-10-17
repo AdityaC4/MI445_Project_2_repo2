@@ -567,6 +567,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerController: {fileID: 0}
 --- !u!136 &94647090
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2170,6 +2171,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerController: {fileID: 0}
 --- !u!136 &253842959
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3245,6 +3247,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerController: {fileID: 0}
 --- !u!136 &469620168
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3921,6 +3924,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerController: {fileID: 0}
 --- !u!136 &540397509
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5738,7 +5742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792a24d65a37d4e0ea0bfe2259c4ced6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  S: {fileID: 0}
+  currentLanguage: 0
 --- !u!4 &701587535
 Transform:
   m_ObjectHideFlags: 0
@@ -8129,6 +8133,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerController: {fileID: 0}
 --- !u!136 &1004949404
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18106,6 +18111,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerController: {fileID: 0}
 --- !u!136 &1937496784
 CapsuleCollider:
   m_ObjectHideFlags: 0
