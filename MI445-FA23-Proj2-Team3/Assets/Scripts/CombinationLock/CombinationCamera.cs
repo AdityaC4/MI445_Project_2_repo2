@@ -9,19 +9,16 @@ public class CombinationCamera : MonoBehaviour, IInteractable
     [SerializeField]
     private CameraController cameraController;
 
-    private Vector3 originalCameraPos;
-    private Quaternion originalCameraRot;
+    //private Vector3 originalCameraPos;
+    //private Quaternion originalCameraRot;
 
     [SerializeField]
     private Transform camPos;
 
-    private bool interacted = false;
+    [SerializeField]
+    private Transform mainCameraPos;
 
-    private void Awake()
-    {
-        originalCameraPos = Camera.main.transform.position;
-        originalCameraRot = Camera.main.transform.rotation;     
-    }
+    private bool interacted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +45,9 @@ public class CombinationCamera : MonoBehaviour, IInteractable
         playerController.canMove = false;
         cameraController.lockCamera = true;
 
-        originalCameraPos = Camera.main.transform.position;
-        originalCameraRot = Camera.main.transform.rotation;
+        //originalCameraPos = Camera.main.transform.position;
+        //originalCameraRot = Camera.main.transform.rotation;
 
-        // Lerp camera to focus on lock
         Camera.main.transform.position = camPos.position;
         Camera.main.transform.rotation = camPos.rotation;
 
@@ -61,11 +57,12 @@ public class CombinationCamera : MonoBehaviour, IInteractable
 
     public void Unlock()
     {
+        interacted = false;
         playerController.canMove = true;
         cameraController.lockCamera = false;
 
-        Camera.main.transform.position = originalCameraPos;
-        Camera.main.transform.rotation = originalCameraRot;
+        Camera.main.transform.position = mainCameraPos.position;
+        Camera.main.transform.rotation = mainCameraPos.rotation;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
