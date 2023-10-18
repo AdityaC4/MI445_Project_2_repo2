@@ -10,6 +10,11 @@ public class NewBehaviourScript : MonoBehaviour, IInteractable
     public GameObject Note;
     public GameObject FlashLight;
 
+    [SerializeField]
+    private bool isLibraryNote;
+
+    private bool libraryNoteFound = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +24,19 @@ public class NewBehaviourScript : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Q) && isLibraryNote && libraryNoteFound)
+        {
+            Interact();
+        }
     }
 
     public void Interact()
     {
+        if (isLibraryNote)
+        {
+            libraryNoteFound = true;
+        }
+        
         FMODUnity.RuntimeManager.PlayOneShot("event:/Paper Pickup");
         Note.SetActive(true);
         FlashLight.SetActive(false);

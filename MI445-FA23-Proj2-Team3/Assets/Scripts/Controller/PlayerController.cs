@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject revealLight;
 
+    private bool hasCode;
+
     void Start()
     {
         SetUpCharacterController();
