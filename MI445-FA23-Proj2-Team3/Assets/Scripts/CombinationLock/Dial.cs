@@ -36,12 +36,10 @@ public class Dial : MonoBehaviour
 
             if(Physics.Raycast(ray, out hit, 100.0f))
             {
-                Debug.Log("raycast hit " + hit.transform.name);
                 if (hit.transform != null)
                 {
                     if (hit.collider.gameObject == this.gameObject)
                     {
-                        Debug.Log("if 4");
                         this.Rotate();
                     }
                 }

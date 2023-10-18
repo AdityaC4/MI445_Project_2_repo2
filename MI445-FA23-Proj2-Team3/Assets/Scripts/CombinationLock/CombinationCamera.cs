@@ -57,7 +57,6 @@ public class CombinationCamera : MonoBehaviour, IInteractable
 
     public void Unlock()
     {
-        this.gameObject.SetActive(true);
 
         playerController.canMove = true;
         cameraController.lockCamera = false;

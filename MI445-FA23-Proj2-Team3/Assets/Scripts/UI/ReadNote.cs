@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour, IInteractable
+public class ReadNote : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private GameObject player;

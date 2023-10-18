@@ -33,7 +33,7 @@ public class PickUpScript : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
                 {
-                    if (hit.transform.gameObject.tag == "canPickUp")
+                    if (hit.transform.gameObject.tag == "canPickUp" || hit.transform.gameObject.tag == "ball")
                     {
                         PickUpObject(hit.transform.gameObject);
                     }
