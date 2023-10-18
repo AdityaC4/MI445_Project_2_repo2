@@ -17,9 +17,9 @@ public class FMODDialogueCallback : MonoBehaviour
         //PlayDialogue("Test");
     }
 
-    public void PlayDialogue(string key)
+    public FMOD.Studio.EventInstance PlayDialogue(string key)
     {
-        var dialogueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/DIA");
+        FMOD.Studio.EventInstance dialogueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/DIA");
 
         // Pin the key string in memory and pass a pointer through the user data
         GCHandle stringHandle = GCHandle.Alloc(key, GCHandleType.Pinned);
@@ -28,6 +28,8 @@ public class FMODDialogueCallback : MonoBehaviour
         dialogueInstance.setCallback(dialogueCallback);
         dialogueInstance.start();
         dialogueInstance.release();
+
+        return dialogueInstance;
     }
 
     [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]

@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         //transform.rotation = rotation;
         GetComponent<Rigidbody>().detectCollisions = false;
         FMODUnity.RuntimeManager.PlayOneShot("event:/Locker Enter + Exit");
-        AudioManager.S.toggleInsideLockerSnapshot(true);
+        AudioManager.S.ToggleInsideLockerSnapshot(true);
     }
 
     public void ExitLocker(Vector3 endPos)
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<Rigidbody>().detectCollisions = true;
         canMove = true;
         FMODUnity.RuntimeManager.PlayOneShot("event:/Locker Enter + Exit");
-        AudioManager.S.toggleInsideLockerSnapshot(false);
+        AudioManager.S.ToggleInsideLockerSnapshot(false);
     }
 
     void FlashSwitch()

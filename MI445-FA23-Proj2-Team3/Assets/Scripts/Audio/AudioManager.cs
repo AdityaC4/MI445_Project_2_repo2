@@ -4,7 +4,6 @@ using UnityEngine;
 
 public enum eLanguage { ENG, SPN };
 
-[RequireComponent(typeof(FMODDialogueCallback))]
 public class AudioManager : MonoBehaviour
 {
     // Singleton //
@@ -19,11 +18,11 @@ public class AudioManager : MonoBehaviour
     private FMOD.Studio.EventInstance insideLockerSnapshot;
 
     // Other //
-    FMODDialogueCallback dialogueCallback;
+    public DialogueManager dialogueManager;
 
-    [Header("Audio Options [ do NOT edit plz >:( ]")]
-    [SerializeField]
-    private eLanguage currentLanguage = eLanguage.ENG;
+    [Header("Audio Options")]
+    [SerializeField] private eLanguage currentLanguageVO = eLanguage.ENG;
+    [SerializeField] private eLanguage currentLanguageSB = eLanguage.ENG;
 
     private void Awake()
     {
@@ -48,16 +47,13 @@ public class AudioManager : MonoBehaviour
         insideLockerSnapshot.start();
 
         // MASTER BANK IS LOADED ON GAME INIT. ALL OTHERS SHOULD BE DONE MANUALLY //
-        // Look for player's selected language & load that bank todo comment back in line below
-        //currentLanguage = (eLanguage) PlayerPrefs.GetInt("Language", (int)eLanguage.ENG);
-        LoadLanguageBank(currentLanguage);
-
-        // Create dialogue callback boi
-        dialogueCallback = GetComponent<FMODDialogueCallback>();
-        dialogueCallback.PlayDialogue("Test");
+        // Look for player's selected language & load that bank TODO Uncomment out these bois later
+        //currentLanguageVO = (eLanguage) PlayerPrefs.GetInt("LanguageVO", (int)eLanguage.ENG);
+        //currentLanguageSB = (eLanguage) PlayerPrefs.GetInt("LanguageSB", (int)eLanguage.ENG);
+        LoadLanguageBank(currentLanguageVO);
     }
 
-    public void toggleInsideLockerSnapshot(bool on)
+    public void ToggleInsideLockerSnapshot(bool on)
     {
         if (on)
         {
@@ -73,19 +69,32 @@ public class AudioManager : MonoBehaviour
     public void LoadLanguageBank(eLanguage language)
     {
         // Unload current bank
-        FMODUnity.RuntimeManager.UnloadBank("LocalizedDIA_" + currentLanguage.ToString());
+        FMODUnity.RuntimeManager.UnloadBank("LocalizedDIA_" + currentLanguageVO.ToString());
 
         // Load new one
         FMODUnity.RuntimeManager.LoadBank("LocalizedDIA_" + language.ToString());
-        PlayerPrefs.SetInt("Language", (int) currentLanguage);
+        PlayerPrefs.SetInt("LanguageVO", (int) currentLanguageVO);
     }
 
-    /// <summary>
-    /// Pretty much just a passthrough for the dialogue callback
-    /// </summary>
-    /// <param name="key">The audio file to play</param>
-    public void PlayDialogue(string key)
+    public void SetGameLanguageVO(eLanguage language)
     {
-        dialogueCallback.PlayDialogue(key);
+        currentLanguageVO = language;
+        PlayerPrefs.SetInt("LanguageVO", (int) language);
+    }
+
+    public eLanguage GetGameLanguageVO()
+    {
+        return currentLanguageVO;
+    }
+
+    public void SetGameLanguageSB(eLanguage language)
+    {
+        currentLanguageSB = language;
+        PlayerPrefs.SetInt("LanguageSB", (int) language);
+    }
+
+    public eLanguage GetGameLanguageSB()
+    {
+        return currentLanguageSB;
     }
 }
